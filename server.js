@@ -7,6 +7,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
+//update this such that use the port available in the ENVIRONMENT variable, or 3000 if none.  
 var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
@@ -71,6 +72,10 @@ app.get("/api/:characters?", function(req, res) {
     return res.json(false);
   }
   return res.json(characters);
+});
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "view.html"));
 });
 
 // Create New Characters - takes in JSON input
