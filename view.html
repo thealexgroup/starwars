@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Star Wars - Express</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
   <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -20,6 +17,7 @@
       <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
       <hr>
       <a href="/add"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Add New Character</button></a>
+      <a href="/all"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> All Characters</button></a>
     </div>
     <div class="row">
 
@@ -30,7 +28,7 @@
             <h3 class="panel-title"><strong>Character Search</strong></h3>
           </div>
           <div class="panel-body">
-            <input type="text" id="character-search" class="form-control">
+            <input type="text" id="character-search" class="form-control" >
             <br>
             <div class="text-right">
               <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span class="glyphicon glyphicon-search"></span> Search Your Feelings. You know it is true.</button>
@@ -80,5 +78,6 @@
       });
     });
   </script>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-// Dependencies required
+// Dependencies
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -7,8 +7,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-//define a port
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,7 +15,6 @@ app.use(bodyParser.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-//this is an array of objects in name/value pairs:
 var characters = [
   {
     routeName: "yoda",
@@ -49,15 +47,12 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "view.html"));
 });
 
-//serve the add.html page at that route
 app.get("/add", function(req, res) {
   res.sendFile(path.join(__dirname, "add.html"));
 });
 
-// Get all characters
 app.get("/all", function(req, res) {
-
-  res.json(characters);
+  res.sendFile(path.join(__dirname, "all.html"));
 });
 
 // Search for Specific Character (or all characters) - provides JSON
@@ -72,15 +67,11 @@ app.get("/api/:characters?", function(req, res) {
         return res.json(characters[i]);
       }
     }
+
     return res.json(false);
   }
   return res.json(characters);
 });
-
-//this says that if nothing returns above, redirect by default to the view.html page
-app.get('*',function (req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
-    });
 
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
